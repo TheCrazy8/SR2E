@@ -24,9 +24,10 @@ on:
       SR2Ver-ManifestID:
         description: 'The SR2 version'
         required: true
-        default: '1.1.0 [20251101030000-104680] (3171952233644049159)'
+        default: '1.2.0 (1249982347421925860)'
         type: choice
         options:
+          - '1.2.0 (1249982347421925860)'
           - '1.1.0 [20251101030000-104680] (3171952233644049159)'
           - '1.0.3 [20251022195412-104356] (856213111485396824)'
           - '1.0.2 [20250930224232-103839] (1405681876136878957)'
@@ -63,7 +64,7 @@ on:
 env:
   DEP_ZIP_NAME: dependencies.zip
   API_BASE_URL: https://api.sr2e.sr2.dev
-  DEFAULT_SR2_VER_MANIFESTID: '1.1.0 [20251101030000-104680] (3171952233644049159)'
+  DEFAULT_SR2_VER_MANIFESTID: '1.2.0 (1249982347421925860)'
   DEFAULT_SR2_VER_MLVER: '0.7.1'
   DEFAULT_VERSION: 'auto'
   DEFAULT_RELEASE_TYPE: 'alpha'
@@ -92,10 +93,10 @@ jobs:
       - name: Checkout Repository Code
         uses: actions/checkout@v4
 
-      - name: Setup .NET SDK 6
+      - name: Setup .NET SDK 8
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '8.0.x'
 
       - name: Extract Manifest ID from Choice
         id: manifest_lookup
